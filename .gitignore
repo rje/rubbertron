@@ -1,0 +1,9 @@
+Library
+Temp
+osx
+*.pidb
+deploy.sh
+february
+rubbertron
+*.apk
+Assets/WebPlayerTemplates*

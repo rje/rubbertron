@@ -1,0 +1,21 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/GameManager.cs">
+    <Files>
+      <File FileName="Assets/Shaders/ColoredUntextured.shader" Line="35" Column="1" />
+      <File FileName="Assets/Scripts/Game/Player.cs" Line="38" Column="22" />
+      <File FileName="Assets/Scripts/Game/PlayerInput.cs" Line="19" Column="23" />
+      <File FileName="Assets/Scripts/Game/Robot.cs" Line="49" Column="4" />
+      <File FileName="Assets/Scripts/Game/Bullet.cs" Line="7" Column="9" />
+      <File FileName="Assets/Scripts/Game/Shootable.cs" Line="10" Column="70" />
+      <File FileName="Assets/Scripts/Game/Shooter.cs" Line="44" Column="21" />
+      <File FileName="Assets/Scripts/Game/Human.cs" Line="17" Column="74" />
+      <File FileName="Assets/Scripts/Editor/MenuItems.cs" Line="18" Column="3" />
+      <File FileName="Assets/Scripts/Game/GameManager.cs" Line="34" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
