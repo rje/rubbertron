@@ -47,9 +47,14 @@
      <Compile Include="Assets\Scripts\Game\Bullet.cs" />
      <Compile Include="Assets\Scripts\Game\GameManager.cs" />
      <Compile Include="Assets\Scripts\Game\Human.cs" />
+     <Compile Include="Assets\Scripts\Game\LevelGenerator.cs" />
+     <Compile Include="Assets\Scripts\Game\LevelInfo.cs" />
+     <Compile Include="Assets\Scripts\Game\Mobs\Grunt.cs" />
+     <Compile Include="Assets\Scripts\Game\Mobs\Mob.cs" />
+     <Compile Include="Assets\Scripts\Game\Mobs\Robot.cs" />
+     <Compile Include="Assets\Scripts\Game\Mobs\Tank.cs" />
      <Compile Include="Assets\Scripts\Game\Player.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerInput.cs" />
-     <Compile Include="Assets\Scripts\Game\Robot.cs" />
      <Compile Include="Assets\Scripts\Game\Shootable.cs" />
      <Compile Include="Assets\Scripts\Game\Shooter.cs" />
      <Compile Include="Assets\Scripts\UI\HUD.cs" />

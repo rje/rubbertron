@@ -11,7 +11,6 @@ public class Player : MonoBehaviour {
 	}
 	
 	void Update() {
-		m_shooter.SetTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 		LookForHumans();
 	}
 	
@@ -25,6 +24,8 @@ public class Player : MonoBehaviour {
 	}
 	
 	void CollectHuman(Human toCollect) {
+		var gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
+		gm.CollectHuman(toCollect);
 		Destroy (toCollect.gameObject);
 	}
 	

@@ -26,7 +26,7 @@ public class Human : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		var collider = collision.collider;
 		if(collider.CompareTag("wall")) {
-			var ray = new Ray(transform.position, m_direction);
+			var ray = new Ray(transform.position, m_direction.normalized);
 			RaycastHit rh;
 			collider.Raycast(ray, out rh, float.MaxValue);
 			m_direction = -2 * Vector3.Dot(m_direction, rh.normal) * rh.normal - m_direction;
