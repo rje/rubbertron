@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Tank : Mob {
 	
-	void Update () {
+	void FixedUpdate () {
 		UpdatePause();
 		if(IsPaused()) {
 			return;

@@ -6,7 +6,7 @@ public class Human : MonoBehaviour {
 	public float m_speed;
 	Vector3 m_direction;
 	
-	void Update() {
+	void FixedUpdate() {
 		UpdateDirection();
 		UpdatePosition();
 	}
@@ -26,7 +26,7 @@ public class Human : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		var collider = collision.collider;
 		if(collider.CompareTag("wall")) {
-			var ray = new Ray(transform.position, m_direction.normalized);
+			var ray = new Ray(transform.position, m_direction);
 			RaycastHit rh;
 			collider.Raycast(ray, out rh, float.MaxValue);
 			m_direction = -2 * Vector3.Dot(m_direction, rh.normal) * rh.normal - m_direction;

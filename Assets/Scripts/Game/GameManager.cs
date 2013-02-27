@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour {
 	List<GameObject> m_humans;
 	LevelInfo m_info;
 	
+	
+	int m_enemyRoundSpawnCount = 0;
+	int m_humanRoundSpawnCount = 0;
+	float m_enemySinceSpawn = 0;
+	float m_humanSinceSpawn = 0;
+	
 	public LevelGenerator m_generator;
 	
 	void Start() {
@@ -32,6 +38,34 @@ public class GameManager : MonoBehaviour {
 			m_wave++;
 			SpawnNewWave();
 		}
+		UpdateSpawnTimers();
+		SpawnIfNecessary();
+	}
+	
+	void UpdateSpawnTimers() {
+		m_enemySinceSpawn += Time.deltaTime;
+		m_humanSinceSpawn += Time.deltaTime;
+	}
+	
+	void SpawnIfNecessary() {
+		if(ShouldSpawnEnemy()) {
+			SpawnEnemy(1.0f);
+			m_enemyRoundSpawnCount++;
+			m_enemySinceSpawn -= m_info.m_mobSpawnRate;
+		}
+		if(ShouldSpawnHuman()) {
+			SpawnHuman ();
+			m_humanRoundSpawnCount++;
+			m_humanSinceSpawn -= m_info.m_humanSpawnRate;
+		}
+	}
+	
+	bool ShouldSpawnEnemy() {
+		return m_enemySinceSpawn >= m_info.m_mobSpawnRate && m_enemyRoundSpawnCount < m_info.m_roundEnemySpawn;
+	}
+	
+	bool ShouldSpawnHuman() {
+		return m_humanSinceSpawn >= m_info.m_humanSpawnRate && m_humanRoundSpawnCount < m_info.m_roundHumanSpawn;
 	}
 	
 	void ClearRemnants() {
@@ -42,6 +76,9 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	bool WaveIsFinished() {
+		if(m_enemyRoundSpawnCount < m_info.m_roundEnemySpawn || m_humanRoundSpawnCount < m_info.m_roundHumanSpawn) {
+			return false;
+		}
 		foreach(var go in m_mobs) {
 			var mob = go.GetComponent<Mob>();
 			if(mob.m_type != MobType.Tank) {
@@ -72,20 +109,32 @@ public class GameManager : MonoBehaviour {
 	void SpawnNewWave() {
 		m_mobs = new List<GameObject>();
 		m_humans = new List<GameObject>();
+		m_enemyRoundSpawnCount = 0;
+		m_enemySinceSpawn = 0;
+		m_humanRoundSpawnCount = 0;
+		m_humanSinceSpawn = 0;
 		m_info = m_generator.GetInfoForLevel(m_wave);
 		for(var i = 0; i < m_info.m_baseEnemySpawn; i++) {
-			var type = m_info.GetTypeToSpawn();
-			var go = InstantiateMobType(type);
-			var mob = go.GetComponent<Mob>();
-			mob.PauseFor(2);
-			go.transform.localPosition = m_info.GetRandomStartingPosition();
-			m_mobs.Add (go);
+			SpawnEnemy (2);
 		}
 		for(var i = 0; i < m_info.m_baseHumanSpawn; i++) {
-			var go = (GameObject)GameObject.Instantiate(m_humanPrefab);
-			go.transform.localPosition = m_info.GetRandomStartingPosition();
-			m_humans.Add (go);
+			SpawnHuman ();
 		}
+	}
+	
+	void SpawnEnemy(float pauseDelay) {
+		var type = m_info.GetTypeToSpawn();
+		var go = InstantiateMobType(type);
+		var mob = go.GetComponent<Mob>();
+		mob.PauseFor(pauseDelay);
+		go.transform.localPosition = m_info.GetRandomStartingPosition();
+		m_mobs.Add (go);
+	}
+	
+	void SpawnHuman() {
+		var go = (GameObject)GameObject.Instantiate(m_humanPrefab);
+		go.transform.localPosition = m_info.GetRandomStartingPosition();
+		m_humans.Add (go);
 	}
 	
 	GameObject InstantiateMobType(MobType type) {

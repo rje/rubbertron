@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Grunt : Mob {
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		UpdatePause();
 		if(IsPaused()) {
 			return;

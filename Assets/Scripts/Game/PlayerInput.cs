@@ -10,8 +10,8 @@ public class PlayerInput : MonoBehaviour {
 	}
 	
 	void HandleMovementInput() {
-		var horiz = Input.GetAxis("Horizontal");
-		var vert = Input.GetAxis ("Vertical");
+		var horiz = Input.GetAxisRaw("Horizontal");
+		var vert = Input.GetAxisRaw("Vertical");
 		var direction = new Vector3(horiz, vert, 0);
 		direction.Normalize();
 		m_player.UpdatePosition(direction);
@@ -36,7 +36,7 @@ public class PlayerInput : MonoBehaviour {
 	
 	Vector3 GetGamepadAim() {
 		var horiz = Input.GetAxisRaw("FireHoriz");
-		var vert = Input.GetAxisRaw ("FireVert");
+		var vert = Input.GetAxisRaw("FireVert");
 		var dir = new Vector3(horiz, vert, 0);
 		return dir;
 	}

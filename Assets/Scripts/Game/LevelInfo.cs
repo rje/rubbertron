@@ -12,9 +12,9 @@ public class LevelInfo {
 	
 	public float m_gruntChance;
 	public float m_robotChance;
+	public float m_tankChance;
 	public float m_spawnerChance;
 	public float m_exploderChance;
-	public float m_tankChance;
 	
 	public float m_mobSpawnRate;
 	public float m_humanSpawnRate;
@@ -46,8 +46,11 @@ public class LevelInfo {
 	}	
 	
 	public Vector3 GetRandomStartingPosition() {
-		var x = -12.0 + 24.0 * m_rand.NextDouble();
-		var y = -9.0 + 18.0 * m_rand.NextDouble();
+		var x = -11.0 + 10.0 * m_rand.NextDouble();
+		if(m_rand.Next() % 2 == 0) {
+			x = -x;
+		}
+		var y = -8.0 + 16.0 * m_rand.NextDouble();
 		return new Vector3((float)x, (float)y, 0);
 	}
 }

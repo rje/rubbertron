@@ -10,12 +10,15 @@ public class Robot : Mob {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		UpdatePause();
 		if(IsPaused()) {
 			return;
 		}
 		DoCommonUpdate();
+	}
+	
+	void Update() {
 		UpdateFiring ();
 	}
 	
