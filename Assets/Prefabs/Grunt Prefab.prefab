@@ -44,7 +44,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 0da6b3db4a7884dfa82726f2310ef19e, type: 2}
+  - {fileID: 2100000, guid: 5c0bd47973b414d7a9b3f074aa6f531d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -104,6 +104,8 @@ MonoBehaviour:
   m_searchRange: 5
   m_currentSpeed: 0
   m_accel: 2
+  m_deathExplosionPrefab: {fileID: 100000, guid: 6230e8c15ce6942b6a1150ed977a5301,
+    type: 2}
 --- !u!143 &14300000
 CharacterController:
   m_ObjectHideFlags: 1

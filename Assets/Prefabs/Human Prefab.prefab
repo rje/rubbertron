@@ -113,6 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12a9cf3e50d14803a709e0256549861, type: 3}
   m_Name: 
   m_speed: 1
+  m_destroyEffect: {fileID: 100000, guid: 482196ceb4ff241a99ff0b9bb760b7c1, type: 2}
+  m_savedEffect: {fileID: 100000, guid: 3272e4dc891f64ae68b8d0595f27740b, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

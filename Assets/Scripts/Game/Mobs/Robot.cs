@@ -35,6 +35,7 @@ public class Robot : Mob {
 	void ShotByPlayer() {
 		var gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
 		gm.RemoveMob(gameObject);
+		MakeExplosionParticles();
 		Destroy (gameObject);
 	}
 }

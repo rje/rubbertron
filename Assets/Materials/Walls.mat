@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Walls
-  m_Shader: {fileID: 4800000, guid: 6ed0f7b0c69764d9c8a4a521891bce76, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2f5a0306f5daa42da9aec65f6db8f4bd, type: 3}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -18,9 +18,17 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats: {}
+    m_Floats:
+      data:
+        first:
+          name: _InvFade
+        second: 1
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 0, a: 1}
+        second: {r: .766188502, g: 1, b: 0, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 1, g: .885793924, b: 0, a: .333333343}

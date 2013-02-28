@@ -6,6 +6,10 @@ public class Player : MonoBehaviour {
 	public CharacterController m_controller;
 	public Shooter m_shooter;
 	
+	public GameObject m_deathParticles;
+	
+	bool m_dead = false;
+	
 	public void UpdatePosition(Vector3 moveVector) {
 		m_controller.Move(moveVector * m_speed * Time.deltaTime);
 	}
@@ -33,7 +37,14 @@ public class Player : MonoBehaviour {
 		Die();
 	}
 	
-	void Die() {
+	public void Die() {
+		if(m_dead) {
+			return;
+		}
+		var explosion = (GameObject)GameObject.Instantiate(m_deathParticles);
+		explosion.transform.position = transform.position;
+		Destroy (explosion, 2.5f);
+		m_dead = true;
 		Destroy (gameObject);
 		var gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
 		gm.HandlePlayerDeath();

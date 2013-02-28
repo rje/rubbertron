@@ -6,6 +6,9 @@ public class Human : MonoBehaviour {
 	public float m_speed;
 	Vector3 m_direction;
 	
+	public GameObject m_destroyEffect;
+	public GameObject m_savedEffect;
+	
 	void FixedUpdate() {
 		UpdateDirection();
 		UpdatePosition();
@@ -32,5 +35,17 @@ public class Human : MonoBehaviour {
 			m_direction = -2 * Vector3.Dot(m_direction, rh.normal) * rh.normal - m_direction;
 			m_direction.Normalize();
 		}
+	}
+	
+	public void PlayDestroyEffect() {
+		var go = (GameObject)GameObject.Instantiate(m_destroyEffect);
+		go.transform.position = transform.position;
+		Destroy (go, 2.5f);
+	}
+	
+	public void PlaySavedEffect() {
+		var go = (GameObject)GameObject.Instantiate(m_savedEffect);
+		go.transform.position = transform.position;
+		Destroy (go, 2.5f);
 	}
 }

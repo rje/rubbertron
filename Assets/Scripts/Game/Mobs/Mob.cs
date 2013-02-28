@@ -20,6 +20,8 @@ public class Mob : MonoBehaviour {
 	public float m_currentSpeed;
 	public float m_accel;
 	
+	public GameObject m_deathExplosionPrefab;
+	
 	float m_pauseAmount;
 	bool m_isPaused;
 	
@@ -69,12 +71,14 @@ public class Mob : MonoBehaviour {
 		}
 	}
 	
-	protected void UpdateTarget() {
-		var colliders = Physics.OverlapSphere(transform.position, m_searchRange);
-		foreach(var collider in colliders) {
-			if(collider.CompareTag("human")) {
-				m_target = collider.gameObject;
-				return;
+	protected void UpdateTarget(bool ignoreHumans = false) {
+		if(!ignoreHumans) {
+			var colliders = Physics.OverlapSphere(transform.position, m_searchRange);
+			foreach(var collider in colliders) {
+				if(collider.CompareTag("human")) {
+					m_target = collider.gameObject;
+					return;
+				}
 			}
 		}
 		m_target = GameObject.FindGameObjectWithTag("Player");
@@ -98,5 +102,11 @@ public class Mob : MonoBehaviour {
 		var gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
 		gm.DestroyHuman(toCollect);
 		Destroy (toCollect.gameObject);
+	}
+	
+	public void MakeExplosionParticles(float delay = 1.5f) {
+		var go = (GameObject)GameObject.Instantiate(m_deathExplosionPrefab);
+		go.transform.position = transform.position;
+		Destroy(go, delay);
 	}
 }

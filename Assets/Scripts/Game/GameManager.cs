@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject m_gruntPrefab;
 	public GameObject m_robotPrefab;
 	public GameObject m_tankPrefab;
+	public GameObject m_spawnerPrefab;
+	public GameObject m_exploderPrefab;
 	public GameObject m_humanPrefab;
 	
 	List<GameObject> m_mobs;
@@ -143,6 +145,10 @@ public class GameManager : MonoBehaviour {
 			return (GameObject)GameObject.Instantiate(m_robotPrefab);
 		case MobType.Tank:
 			return (GameObject)GameObject.Instantiate(m_tankPrefab);
+		case MobType.Spawner:
+			return (GameObject)GameObject.Instantiate(m_spawnerPrefab);
+		case MobType.Exploder:
+			return (GameObject)GameObject.Instantiate(m_exploderPrefab);
 		default:
 		case MobType.Grunt:
 			return (GameObject)GameObject.Instantiate(m_gruntPrefab);
@@ -158,11 +164,13 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public void CollectHuman(Human toCollect) {
+		toCollect.PlaySavedEffect();
 		m_humans.Remove(toCollect.gameObject);
 		m_score += 100;
 	}
 	
 	public void DestroyHuman(Human toDestroy) {
+		toDestroy.PlayDestroyEffect();
 		m_humans.Remove (toDestroy.gameObject);
 	}
 	
@@ -172,14 +180,30 @@ public class GameManager : MonoBehaviour {
 		m_mobs.Remove (toDestroy);
 	}
 	
+	public void DestroyMob(GameObject toDestroy) {
+		m_mobs.Remove (toDestroy);
+	}
+	
 	void AddScoreForMobType(MobType type) {
 		switch(type) {
 		case MobType.Grunt:
-			m_score += 50;
+			m_score += 75;
 			break;
 		case MobType.Robot:
 			m_score += 125;
 			break;
+		case MobType.Spawner:
+			m_score += 275;
+			break;
+		case MobType.Exploder:
+			m_score += 350;
+			break;
 		}
+	}
+	
+	public void SpawnMobAtPosition(MobType type, Vector3 position) {
+		var go = InstantiateMobType(type);
+		go.transform.position = position;
+		m_mobs.Add(go);
 	}
 }
