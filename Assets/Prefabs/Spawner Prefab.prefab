@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 143: {fileID: 14300000}
   - 111: {fileID: 11100000}
+  - 82: {fileID: 8200000}
   m_Layer: 0
   m_Name: Spawner Prefab
   m_TagString: Untagged
@@ -192,6 +193,62 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_Mesh: {fileID: 4300000, guid: 2a17e9d2e7a734bd7a0a73a8e4bb0ed9, type: 2}
+--- !u!82 &8200000
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -239,8 +296,12 @@ MonoBehaviour:
   m_searchRange: 0
   m_currentSpeed: 0
   m_accel: .100000001
+  m_spawnEffect: {fileID: 100000, guid: c069e3051f8b24db2ac1347774e7cd25, type: 2}
   m_deathExplosionPrefab: {fileID: 100000, guid: 0bfdc69ce859842bb8f97807305be03c,
     type: 2}
+  m_audioSource: {fileID: 8200000}
+  m_spawnSound: {fileID: 8300000, guid: 540d720bc2a5340789915b28384c215c, type: 3}
+  m_explosionSound: {fileID: 8300000, guid: 1f0b0f18cec444ccdab3300ec0b55aec, type: 3}
   m_toSpawn: 1
   m_spawnTime: 4
   m_hp: 2

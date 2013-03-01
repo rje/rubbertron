@@ -14,6 +14,7 @@ public class Grunt : Mob {
 	void ShotByPlayer() {
 		var gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
 		gm.RemoveMob(gameObject);
+		AudioSource.PlayClipAtPoint(m_explosionSound, transform.position);
 		MakeExplosionParticles();
 		Destroy (gameObject);
 	}

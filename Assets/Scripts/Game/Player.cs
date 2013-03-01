@@ -6,9 +6,25 @@ public class Player : MonoBehaviour {
 	public CharacterController m_controller;
 	public Shooter m_shooter;
 	
+	public GameObject m_spawnEffect;
 	public GameObject m_deathParticles;
 	
+	public AudioSource m_audioSource;
+	public AudioClip m_spawnClip;
+	public AudioClip m_explosionClip;
+	
 	bool m_dead = false;
+	
+	void Start() {
+		DoSpawnEffect();
+	}
+	
+	void DoSpawnEffect() {
+		var go = (GameObject)GameObject.Instantiate(m_spawnEffect);
+		go.transform.position = transform.position;
+		m_audioSource.PlayOneShot(m_spawnClip);
+		Destroy (go, 2.0f);
+	}
 	
 	public void UpdatePosition(Vector3 moveVector) {
 		m_controller.Move(moveVector * m_speed * Time.deltaTime);
@@ -48,5 +64,7 @@ public class Player : MonoBehaviour {
 		Destroy (gameObject);
 		var gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
 		gm.HandlePlayerDeath();
+		AudioSource.PlayClipAtPoint(m_explosionClip, transform.position);
+		Camera.main.GetComponent<CameraShake>().StartShake(1.0f);
 	}
 }

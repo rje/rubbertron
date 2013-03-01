@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour {
 	public int m_score;
 	public int m_wave;
 	public float m_spawnDelay;
+	public int m_extraLivesIncrement;
+	
+	public GameOver m_gameOverScreen;
 	
 	public GameObject m_playerPrefab;
 	public GameObject m_gruntPrefab;
@@ -17,6 +20,10 @@ public class GameManager : MonoBehaviour {
 	public GameObject m_exploderPrefab;
 	public GameObject m_humanPrefab;
 	
+	public AudioClip m_waveStartSound;
+	public AudioClip m_extraLifeSound;
+	public AudioSource m_audioSource;
+	
 	List<GameObject> m_mobs;
 	List<GameObject> m_humans;
 	LevelInfo m_info;
@@ -24,14 +31,50 @@ public class GameManager : MonoBehaviour {
 	
 	int m_enemyRoundSpawnCount = 0;
 	int m_humanRoundSpawnCount = 0;
+	int m_nextExtraLife = 0;
 	float m_enemySinceSpawn = 0;
 	float m_humanSinceSpawn = 0;
+	int livesAtStart;
 	
 	public LevelGenerator m_generator;
 	
 	void Start() {
+		livesAtStart = m_lives;
+		StartGame();
+	}
+	
+	public void StartGame() {
+		ResetVariables();
 		SpawnNewWave();
-		StartCoroutine(SpawnPlayerAfterDelay(m_spawnDelay));
+		StartCoroutine(SpawnPlayerAfterDelay(0));
+	}
+	
+	void ResetVariables() {
+		DestroyExisting();
+		m_lives = livesAtStart;
+		m_wave = 0;
+		m_score = 0;
+		m_enemyRoundSpawnCount = 0;
+		m_humanRoundSpawnCount = 0;
+		m_nextExtraLife = m_extraLivesIncrement;
+		m_enemySinceSpawn = 0;
+		m_humanSinceSpawn = 0;
+		m_generator.CreateRand();
+	}
+	
+	void DestroyExisting() {
+		if(m_mobs != null) {
+			foreach(var mob in m_mobs) {
+				Destroy (mob);
+			}
+			m_mobs.Clear();
+		}
+		if(m_humans != null) {
+			foreach(var human in m_humans) {
+				Destroy (human);
+			}
+			m_humans.Clear ();
+		}
 	}
 	
 	void Update() {
@@ -42,6 +85,15 @@ public class GameManager : MonoBehaviour {
 		}
 		UpdateSpawnTimers();
 		SpawnIfNecessary();
+		CheckForExtraLife();
+	}
+	
+	void CheckForExtraLife() {
+		if(m_score >= m_nextExtraLife) {
+			m_lives++;
+			m_nextExtraLife += m_extraLivesIncrement;
+			m_audioSource.PlayOneShot(m_extraLifeSound);
+		}
 	}
 	
 	void UpdateSpawnTimers() {
@@ -51,7 +103,9 @@ public class GameManager : MonoBehaviour {
 	
 	void SpawnIfNecessary() {
 		if(ShouldSpawnEnemy()) {
-			SpawnEnemy(1.0f);
+			var go = SpawnEnemy(1.0f);
+			var mob = go.GetComponent<Mob>();
+			mob.PlaySpawnSound();
 			m_enemyRoundSpawnCount++;
 			m_enemySinceSpawn -= m_info.m_mobSpawnRate;
 		}
@@ -122,15 +176,17 @@ public class GameManager : MonoBehaviour {
 		for(var i = 0; i < m_info.m_baseHumanSpawn; i++) {
 			SpawnHuman ();
 		}
+		m_audioSource.PlayOneShot(m_waveStartSound);
 	}
 	
-	void SpawnEnemy(float pauseDelay) {
+	GameObject SpawnEnemy(float pauseDelay) {
 		var type = m_info.GetTypeToSpawn();
 		var go = InstantiateMobType(type);
 		var mob = go.GetComponent<Mob>();
 		mob.PauseFor(pauseDelay);
 		go.transform.localPosition = m_info.GetRandomStartingPosition();
 		m_mobs.Add (go);
+		return go;
 	}
 	
 	void SpawnHuman() {
@@ -161,6 +217,7 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void HandleGameOver() {
+		m_gameOverScreen.ShowWithScore(m_score);
 	}
 	
 	public void CollectHuman(Human toCollect) {
@@ -178,6 +235,7 @@ public class GameManager : MonoBehaviour {
 		var mob = toDestroy.GetComponent<Mob>();
 		AddScoreForMobType(mob.m_type);
 		m_mobs.Remove (toDestroy);
+		Camera.main.GetComponent<CameraShake>().StartShake(0.2f);
 	}
 	
 	public void DestroyMob(GameObject toDestroy) {

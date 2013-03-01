@@ -7,7 +7,7 @@ public class LevelGenerator : MonoBehaviour {
 	
 	System.Random m_rand;
 	
-	void Awake() {
+	public void CreateRand() {
 		m_rand = new System.Random(m_seed);
 	}
 	

@@ -5,10 +5,6 @@ public class Robot : Mob {
 	
 	public Shooter m_shooter;
 	
-	// Use this for initialization
-	void Start () {
-	}
-	
 	// Update is called once per frame
 	void FixedUpdate () {
 		UpdatePause();
@@ -36,6 +32,7 @@ public class Robot : Mob {
 		var gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
 		gm.RemoveMob(gameObject);
 		MakeExplosionParticles();
+		AudioSource.PlayClipAtPoint(m_explosionSound, transform.position);
 		Destroy (gameObject);
 	}
 }

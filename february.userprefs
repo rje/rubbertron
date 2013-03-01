@@ -1,23 +1,29 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/VFX/HSVParticles.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Game/Human.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Game/Human.cs" Line="76" Column="47" />
       <File FileName="Assets/Scripts/Game/LevelInfo.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/LevelGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Game/LevelGenerator.cs" Line="11" Column="38" />
       <File FileName="Assets/Scripts/Game/PlayerInput.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/Mobs/Exploder.cs" Line="37" Column="34" />
-      <File FileName="Assets/Scripts/Game/Mobs/Mob.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/Player.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/Shootable.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/Mobs/Grunt.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/Mobs/Spawner.cs" Line="44" Column="29" />
-      <File FileName="Assets/Scripts/UI/MainMenu.cs" Line="7" Column="36" />
-      <File FileName="Assets/Shaders/AdditiveColoredUntextured.shader" Line="9" Column="25" />
-      <File FileName="Assets/Scripts/Game/Mobs/Robot.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Util/HSVColor.cs" Line="12" Column="32" />
-      <File FileName="Assets/Scripts/VFX/HSVParticles.cs" Line="25" Column="23" />
+      <File FileName="Assets/Scripts/Game/Mobs/Exploder.cs" Line="58" Column="38" />
+      <File FileName="Assets/Scripts/Game/Mobs/Mob.cs" Line="43" Column="28" />
+      <File FileName="Assets/Scripts/Game/Player.cs" Line="25" Column="28" />
+      <File FileName="Assets/Scripts/Game/GameManager.cs" Line="52" Column="14" />
+      <File FileName="Assets/Scripts/Game/Shootable.cs" Line="7" Column="26" />
+      <File FileName="Assets/Scripts/Game/Mobs/Grunt.cs" Line="17" Column="69" />
+      <File FileName="Assets/Scripts/Game/Mobs/Spawner.cs" Line="45" Column="4" />
+      <File FileName="Assets/Scripts/UI/MainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Shaders/AdditiveColoredUntextured.shader" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Game/Mobs/Robot.cs" Line="35" Column="69" />
+      <File FileName="Assets/Scripts/Util/HSVColor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/VFX/HSVParticles.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/VFX/HSVObjects.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Game/CameraShake.cs" Line="14" Column="21" />
+      <File FileName="Assets/Scripts/Game/Shooter.cs" Line="53" Column="34" />
+      <File FileName="Assets/Scripts/UI/GameOver.cs" Line="27" Column="18" />
+      <File FileName="Assets/Scripts/UI/Button.cs" Line="10" Column="37" />
+      <File FileName="Assets/Scripts/Game/Mobs/Tank.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

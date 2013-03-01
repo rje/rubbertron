@@ -14,6 +14,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 65: {fileID: 6500000}
   - 111: {fileID: 11100000}
+  - 82: {fileID: 8200000}
   m_Layer: 0
   m_Name: Human Prefab
   m_TagString: human
@@ -84,6 +85,62 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &8200000
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: .5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 1
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -113,8 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12a9cf3e50d14803a709e0256549861, type: 3}
   m_Name: 
   m_speed: 1
+  m_spawnEffect: {fileID: 100000, guid: aa0b15af1c22a4844977f4ad049e8231, type: 2}
   m_destroyEffect: {fileID: 100000, guid: 482196ceb4ff241a99ff0b9bb760b7c1, type: 2}
   m_savedEffect: {fileID: 100000, guid: 3272e4dc891f64ae68b8d0595f27740b, type: 2}
+  m_collectedSound: {fileID: 8300000, guid: b5761e17b17754c84887da7e6af4ac9d, type: 3}
+  m_destroyedSound: {fileID: 8300000, guid: 1f0b0f18cec444ccdab3300ec0b55aec, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -20,10 +20,29 @@ public class Mob : MonoBehaviour {
 	public float m_currentSpeed;
 	public float m_accel;
 	
+	public GameObject m_spawnEffect;
 	public GameObject m_deathExplosionPrefab;
+	
+	public AudioSource m_audioSource;
+	public AudioClip m_spawnSound;
+	public AudioClip m_explosionSound;
 	
 	float m_pauseAmount;
 	bool m_isPaused;
+	
+	void Start() {
+		DoSpawnEffect();
+	}
+	
+	protected void DoSpawnEffect() {
+		var go = (GameObject)GameObject.Instantiate(m_spawnEffect);
+		go.transform.position = transform.position;
+		Destroy (go, 2.0f);
+	}
+	
+	public void PlaySpawnSound() {
+		m_audioSource.PlayOneShot(m_spawnSound);
+	}
 	
 	public void PauseFor(float amount) {
 		m_pauseAmount = amount;

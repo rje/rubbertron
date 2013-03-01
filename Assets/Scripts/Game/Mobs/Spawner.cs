@@ -42,6 +42,7 @@ public class Spawner : Mob {
 		if(m_hp <= 0) {
 			var gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
 			MakeExplosionParticles();
+			AudioSource.PlayClipAtPoint(m_explosionSound, transform.position);
 			gm.RemoveMob(gameObject);
 			Destroy (gameObject);
 		}

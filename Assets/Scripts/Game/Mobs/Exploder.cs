@@ -55,6 +55,7 @@ public class Exploder : Mob {
 		}
 		var go = (GameObject)GameObject.Instantiate(m_explosionEffect);
 		go.transform.position = transform.position;
+		AudioSource.PlayClipAtPoint(m_explosionSound, transform.position);
 		Destroy (go, 2.5f);
 		Destroy (gameObject);
 	}
@@ -63,7 +64,7 @@ public class Exploder : Mob {
 		m_hp--;
 		if(m_hp <= 0) {
 			var gm = GameObject.FindGameObjectWithTag("game manager").GetComponent<GameManager>();
-			MakeExplosionParticles();
+			//MakeExplosionParticles();
 			gm.RemoveMob(gameObject);
 			Explode ();	
 		}

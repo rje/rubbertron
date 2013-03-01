@@ -14,6 +14,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 143: {fileID: 14300000}
   - 111: {fileID: 11100000}
+  - 82: {fileID: 8200000}
   m_Layer: 0
   m_Name: Exploder Prefab
   m_TagString: Untagged
@@ -57,6 +58,62 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mesh: {fileID: 4300000, guid: 2a17e9d2e7a734bd7a0a73a8e4bb0ed9, type: 2}
+--- !u!82 &8200000
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: .5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 1
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -104,8 +161,12 @@ MonoBehaviour:
   m_searchRange: 0
   m_currentSpeed: 0
   m_accel: .25
+  m_spawnEffect: {fileID: 100000, guid: 1cb868672952b4d16a5cc9da9486a8a2, type: 2}
   m_deathExplosionPrefab: {fileID: 100000, guid: dfd07b0cffa6947b89ba294eef08eead,
     type: 2}
+  m_audioSource: {fileID: 8200000}
+  m_spawnSound: {fileID: 8300000, guid: 540d720bc2a5340789915b28384c215c, type: 3}
+  m_explosionSound: {fileID: 8300000, guid: 0bcf247f7f74c450da144e9f32be90c8, type: 3}
   m_explosionEffect: {fileID: 100000, guid: 8c8da7e180b3c441a9c29322255428ef, type: 2}
   m_explosionRadius: 2
   m_timeToExplosion: 10
