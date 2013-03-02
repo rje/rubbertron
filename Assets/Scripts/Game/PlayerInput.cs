@@ -10,15 +10,21 @@ public class PlayerInput : MonoBehaviour {
 	}
 	
 	void HandleMovementInput() {
-		var horiz = Input.GetAxisRaw("Horizontal");
-		var vert = Input.GetAxisRaw("Vertical");
+		var horiz = CustomInput.GetAxisRaw("Horizontal");
+		if(horiz == 0) {
+			horiz = CustomInput.GetAxisRaw("Left", "Right");
+		}
+		var vert = -CustomInput.GetAxisRaw("Vertical");
+		if(vert == 0) {
+			vert = CustomInput.GetAxisRaw ("Down", "Up");
+		}
 		var direction = new Vector3(horiz, vert, 0);
 		direction.Normalize();
 		m_player.UpdatePosition(direction);
 	}
 	
 	void HandleShooting() {
-		var isMouseDown = Input.GetButton("Fire1");
+		var isMouseDown = Input.GetMouseButton(0);
 		var gamepadAim = GetGamepadAim();
 		if(isMouseDown || gamepadAim.sqrMagnitude > 0) {
 			if(isMouseDown) {
@@ -35,8 +41,8 @@ public class PlayerInput : MonoBehaviour {
 	}
 	
 	Vector3 GetGamepadAim() {
-		var horiz = Input.GetAxisRaw("FireHoriz");
-		var vert = Input.GetAxisRaw("FireVert");
+		var horiz = CustomInput.GetAxisRaw("FireHoriz");
+		var vert = -CustomInput.GetAxisRaw("FireVert");
 		var dir = new Vector3(horiz, vert, 0);
 		return dir;
 	}

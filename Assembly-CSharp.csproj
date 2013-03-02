@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;ENABLE_PROFILER;UNITY_EDITOR;1</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;UNITY_STANDALONE_LINUX;ENABLE_PROFILER;UNITY_EDITOR;1</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\Game\CameraShake.cs" />
      <Compile Include="Assets\Scripts\Game\GameManager.cs" />
      <Compile Include="Assets\Scripts\Game\Human.cs" />
+     <Compile Include="Assets\Scripts\Game\Init.cs" />
      <Compile Include="Assets\Scripts\Game\LevelGenerator.cs" />
      <Compile Include="Assets\Scripts\Game\LevelInfo.cs" />
      <Compile Include="Assets\Scripts\Game\Mobs\Exploder.cs" />
@@ -61,9 +62,16 @@
      <Compile Include="Assets\Scripts\Game\Shootable.cs" />
      <Compile Include="Assets\Scripts\Game\Shooter.cs" />
      <Compile Include="Assets\Scripts\UI\Button.cs" />
+     <Compile Include="Assets\Scripts\UI\ConfigureGamepad.cs" />
+     <Compile Include="Assets\Scripts\UI\ConfigureKeyboard.cs" />
+     <Compile Include="Assets\Scripts\UI\FocusItem.cs" />
+     <Compile Include="Assets\Scripts\UI\FocusItemHandler.cs" />
+     <Compile Include="Assets\Scripts\UI\FocusManager.cs" />
      <Compile Include="Assets\Scripts\UI\GameOver.cs" />
      <Compile Include="Assets\Scripts\UI\HUD.cs" />
+     <Compile Include="Assets\Scripts\UI\KeyConfigRow.cs" />
      <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Util\CustomInput.cs" />
      <Compile Include="Assets\Scripts\Util\HSVColor.cs" />
      <Compile Include="Assets\Scripts\Util\ProceduralGeometry.cs" />
      <Compile Include="Assets\Scripts\VFX\HSVObjects.cs" />

@@ -115,6 +115,8 @@ GameObject:
   - 23: {fileID: 90871261}
   - 65: {fileID: 90871263}
   - 114: {fileID: 90871264}
+  - 114: {fileID: 90871265}
+  - 114: {fileID: 90871266}
   m_Layer: 9
   m_Name: Restart
   m_TagString: Untagged
@@ -191,6 +193,34 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 640e652ca9d9a4a9bbf92fedd4395c19, type: 3}
   m_Name: 
+  m_toNotify: {fileID: 904755052}
+  m_message: RestartGame
+--- !u!114 &90871265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90871259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d5f627a43db4828aa1c5d4e675f937, type: 3}
+  m_Name: 
+  m_manager: {fileID: 874436421}
+  m_onHighlight: OnHighlight
+  m_onUnhighlight: OnUnhighlight
+  m_onSelect: OnSelect
+--- !u!114 &90871266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90871259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e76642e095c4bd9a2f268c400d75e1, type: 3}
+  m_Name: 
+  m_default: {r: .200000003, g: .666666687, b: .701960802, a: 1}
+  m_highlight: {r: 1, g: 1, b: .186567158, a: 1}
   m_toNotify: {fileID: 904755052}
   m_message: RestartGame
 --- !u!1 &171078215
@@ -725,6 +755,7 @@ GameObject:
   - 20: {fileID: 874436424}
   - 124: {fileID: 874436423}
   - 92: {fileID: 874436422}
+  - 114: {fileID: 874436421}
   m_Layer: 0
   m_Name: Plain Camera
   m_TagString: Untagged
@@ -732,6 +763,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &874436421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 874436420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361e9d54cbf9e4ef18a077fb8697e12c, type: 3}
+  m_Name: 
+  m_items:
+  - {fileID: 1906262314}
+  - {fileID: 90871265}
+  m_default: 0
+  m_current: 0
+  m_moveThreshold: .25
 --- !u!92 &874436422
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2531,6 +2578,8 @@ GameObject:
   - 23: {fileID: 1906262310}
   - 65: {fileID: 1906262312}
   - 114: {fileID: 1906262313}
+  - 114: {fileID: 1906262314}
+  - 114: {fileID: 1906262315}
   m_Layer: 9
   m_Name: Main Menu
   m_TagString: Untagged
@@ -2607,6 +2656,34 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 640e652ca9d9a4a9bbf92fedd4395c19, type: 3}
   m_Name: 
+  m_toNotify: {fileID: 904755052}
+  m_message: MainMenu
+--- !u!114 &1906262314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906262308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d5f627a43db4828aa1c5d4e675f937, type: 3}
+  m_Name: 
+  m_manager: {fileID: 874436421}
+  m_onHighlight: OnHighlight
+  m_onUnhighlight: OnUnhighlight
+  m_onSelect: OnSelect
+--- !u!114 &1906262315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906262308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e76642e095c4bd9a2f268c400d75e1, type: 3}
+  m_Name: 
+  m_default: {r: .200000003, g: .666666687, b: .701960802, a: 1}
+  m_highlight: {r: 1, g: 1, b: .186567158, a: 1}
   m_toNotify: {fileID: 904755052}
   m_message: MainMenu
 --- !u!1 &1929951988
